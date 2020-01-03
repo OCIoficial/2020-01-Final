@@ -1,0 +1,81 @@
+\documentclass{oci}
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+
+\title{Fórmula 1}
+
+\begin{document}
+\begin{problemDescription}
+  Todos los corredores están situados en la pista, listos para partir.
+  La bandera verde indica el inicio y los competidores arrancan a máxima velocidad.
+
+  En una carrera de la fórmula 1 los autos pueden alcanzar fácilmente velocidades por sobre los 300 km/h.
+  A estas velocidades es difícil para los espectadores percibir todos los detalles.
+  Afortunadamente, una pantalla muestra en cada momento las estadísticas de la carrera.
+
+  Entre los datos mostrados en la pantalla uno es la diferencia de tiempo entre un corredor y el
+  corredor inmediatamente antes que él.
+  Este dato es muy útil pues ilustra qué tan alejado está un competidor del siguiente.
+  Lamentablemente, este dato solo sirve para comparar corredores en posiciones contiguas y durante
+  la carrera a muchos analistas les gustaría poder comparar cualquier par de competidores.
+
+  De forma específica, la pantalla muestra la diferencia en tiempo en la que dos competidores
+  terminaron la vuelta anterior.
+  Es decir, si al terminar la vuelta anterior, el corredor en la posición $(i-1)$-ésima cruzó la
+  meta en el tiempo $t_{i-1}$ y el corredor en la posición $i$-ésima lo hizo en el tiempo $t_{i}$,
+  la pantalla mostrará junto al corredor en la posición $i$-ésima el valor $t_{i} - t_{i-1}$.
+  Por ejemplo, si el corredor que va tercero cruzó la meta luego de 300 segundos
+  comenzada la carrera y el corredor que va cuarto la cruzó 305 segundos después de comenzada la
+  carrera, la pantalla mostrará un valor igual a $305-300=5$ para el corredor en la cuarta posición.
+  Dado que el corredor en la primera posición no tiene nadie antes que él, la pantalla siempre mostrará
+  el valor 0 para este corredor.
+
+  Notar que las posiciones de los competidores pueden variar constantemente y los valores en la
+  pantalla solo consideran las posiciones en que los competidores terminaron la última vuelta.
+  Notar además que los valores solo tienen sentido una vez que todos los competidores han completado
+  la vuelta anterior.
+
+  Dadas las diferencias en tiempo entre los competidores en posiciones contiguas, tu tarea es
+  responder diferentes consultas indicando la diferencia en tiempo entre dos competidores en
+  posiciones arbitrarias.
+\end{problemDescription}
+
+\begin{inputDescription}
+  La entrada comienza con dos enteros $N$ y $Q$ indicando respectivamente la cantidad de
+  competidores en la carrera y la cantidad de consultas que debes responder.
+
+  La siguiente línea contiene $N$ enteros \textbf{mayores o iguales que cero}.
+  El $i$-ésimo entero corresponde a la diferencia en tiempo entre el corredor en la posición
+  $i$-ésima y el corredor en la posición $(i-1)$-ésima, tal como se describe en el enunciado.
+  El primer entero, por corresponder al corredor que va primero en la carrera, siempre será 0.
+  
+  Finalmente, siguen $Q$ líneas cada una describiendo una consulta.
+  Cada una de estas líneas contiene dos enteros $a$ y $b$ indicando que debes
+  responder la diferencia en tiempo entre los competidores en las posiciones $a$ y $b$.
+
+  En todos los casos de prueba siempre se cumplirán las siguientes restricciones:
+  \begin{itemize}
+  \item $2 \leq N \leq 1\,000\,000$
+  \item $1 \leq Q \leq 1\,000\,000$
+  \item $1 \leq a < b \leq N$
+  \end{itemize}
+\end{inputDescription}
+
+\begin{outputDescription}
+  La salida debe contener $Q$ líneas cada una conteniendo un entero \textbf{mayor o igual que cero}.
+  La $j$-ésima línea debe contener la respuesta a la pregunta $j$-ésima.
+\end{outputDescription}
+
+\begin{scoreDescription}
+  \subtask{40}
+  Se probarán varios casos en que $N \leq 1\,000$ y $Q \leq 1\,000$.
+  \subtask{60}
+  Se probarán varios casos sin restricciones adicionales.
+\end{scoreDescription}
+
+\begin{sampleDescription}
+  \sampleIO{sample-1}
+  \sampleIO{sample-2}
+\end{sampleDescription}
+
+\end{document}
