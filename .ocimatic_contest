@@ -1,6 +1,7 @@
 {
     "tasks": [
         "cubo",
-        "formula1"
+        "formula1",
+        "candado"
     ]
 }

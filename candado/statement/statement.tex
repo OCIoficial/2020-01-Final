@@ -1,0 +1,63 @@
+\documentclass{oci}
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+
+\title{El candado del basurero}
+
+\begin{document}
+\begin{problemDescription}
+  Recientemente, Nicolás se cambió a un nuevo departamento.
+  Nicolás es una persona muy meticulosa y ha gastado gran parte de su tiempo en arreglar su
+  nuevo hogar para que todo funcione como a él le gusta.
+  Luego de algunos meses trabajando, ya ha logrado dejar todas las cosas como a él le gustan.
+  Bueno, casi todo.
+  Todavía hay algo que le molesta.
+
+  El nuevo edificio donde se encuentra su departamento tiene un contenedor de basura donde Nicolás
+  debe llevar su basura cada vez que el basurero dentro de su departamento se llena.
+  Por orden del administrador del edificio, el basurero debe siempre permanecer cerrado con un
+  candado.
+  Esto irrita mucho a Nicolás pues cada vez que lleva la basura tiene que sacar y luego volver a
+  poner el candado.
+  Lo cuál, según él, toma mucho tiempo y es especialmente molesto cuando está lloviendo.
+
+  Para abrir el candado, se debe ingresar la combinación de 4 dígitos rotando los discos
+  giratorios.
+  Nicolás lo hace rotando uno a uno los discos siempre una posición a la vez.
+  Es decir, rotar uno de los discos a una de las posiciones contiguas, hacia arriba o hacia abajo, es
+  considerado por Nicolás un movimiento.
+
+  Dependiendo de la posición inicial de cada disco puede ser conveniente rotarlo en uno u otro
+  sentido.
+  Por ejemplo, si el primer disco se encuentra en la posición 8 y hay que llevarlo a la posición 0 es
+  conveniente rotarlo hacia arriba, primero a la posición 9 y luego a la 0.
+  De esta forma solo se deben hacer dos movimientos.
+  Por otro lado, rotarlo hacia abajo toma 8 movimientos.
+
+  Nicolás piensa que si de antemano sabe en que dirección rotar cada disco podrá abrir el candado en
+  la menor cantidad de movimientos posibles ahorrando así invaluable tiempo.
+\end{problemDescription}
+
+\begin{inputDescription}
+  La entrada contiene dos líneas cada una conteniendo cuatro enteros entre 0 y 9.
+  La primera línea corresponde a las posiciones de los cilindros en la que comienza el candado.
+  La segunda línea corresponde a la combinación correcta del candado, es decir, las posiciones a las
+  que hay que llevar los cilindros.
+\end{inputDescription}
+
+\begin{outputDescription}
+  La salid debe contener un único entero correspondiente a la mínima cantidad de movimientos en los
+  que es posible llegar a la combinación correcta.
+\end{outputDescription}
+
+\begin{scoreDescription}
+  Este problema no contiene subtareas se dará un puntaje proporcional a la cantidad de casos de
+  prueba correctos siendo 100 el máximo puntaje.
+\end{scoreDescription}
+
+\begin{sampleDescription}
+\sampleIO{sample-1}
+\sampleIO{sample-2}
+\end{sampleDescription}
+
+\end{document}
