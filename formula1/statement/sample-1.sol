@@ -1,1 +1,3 @@
-<sample output data here>
+2
+5
+107
