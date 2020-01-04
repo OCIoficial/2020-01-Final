@@ -29,24 +29,24 @@
 
 [Subtask 2]
   # The array of differences has only 0s, thus, the answer is 0 for all queries.
-  all_zeros ; gen_random.py 1000000 1000000 0
+  all_zeros ; gen_random.py 1000000 100000 0
 
   # The sorted array has many repeated elements, thus, the differences are small
-  dense ; gen_random.py 1000000 1000000 100
-  dense ; gen_random.py 1000000 1000000 500
+  dense ; gen_random.py 1000000 100000 100
+  dense ; gen_random.py 1000000 100000 500
 
   # The sorted array is sparse, thus, the array of differences has large values.
-  sparse ; gen_random.py 1000000 1000000 1000000000
-  sparse ; gen_random.py 1000000 1000000 1000000000
+  sparse ; gen_random.py 1000000 100000 1000000000
+  sparse ; gen_random.py 1000000 100000 1000000000
 
   # Biggest input where all possible pairs are present in the queries
-  all_pairs ; gen_random.py 1414 998991 1000000000
-  all_pairs ; gen_random.py 1414 998991 1000000000
+  all_pairs ; gen_random.py 447 99681 1000000000
+  all_pairs ; gen_random.py 447 99681 1000000000
 
   # Some random cases
   random ; gen_random.py 2000 2000 10000
   random ; gen_random.py 10000 20000 100000
   random ; gen_random.py 20000 20000 100000
   random ; gen_random.py 100000 100000 1000000
-  random ; gen_random.py 200000 200000 1000000
-  random ; gen_random.py 1000000 1000000 10000000
+  random ; gen_random.py 200000 100000 1000000
+  random ; gen_random.py 1000000 100000 10000000
