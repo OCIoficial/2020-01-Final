@@ -8,13 +8,25 @@ void read_cube(int cube[]) {
   }
 }
 
-bool all_the_same(int cube[]) {
-  for (int i = 0; i < 5; ++i) {
-    if (cube[i] != cube[i+1]) {
+bool equals(int cube1[], int cube2[], int offset = 0, int start = 0,
+            int end = 6) {
+  for (int i = start; i < end; ++i) {
+    if (cube1[i] != cube2[(i + offset) % 6]) {
       return false;
     }
   }
   return true;
+}
+
+bool is_rot(int cube1[], int cube2[]) {
+  if (cube1[0] != cube2[0] or cube1[1] != cube1[1])
+    return false;
+
+  for (int offset = 0; offset < 4; ++offset) {
+    if (equals(cube1, cube2, offset, 2, 6))
+      return true;
+  }
+  return false;
 }
 
 int main() {
@@ -22,7 +34,7 @@ int main() {
   read_cube(cube1);
   read_cube(cube2);
 
-  if (all_the_same(cube1) and all_the_same(cube2) and cube1[0] == cube2[0]) {
+  if (is_rot(cube1, cube2)) {
     printf("1\n");
     return 0;
   }

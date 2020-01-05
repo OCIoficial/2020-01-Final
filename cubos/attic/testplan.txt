@@ -1,15 +1,11 @@
 [Subtask 1]
   equals ; gen_equals.py
   equals ; gen_equals.py
-  equals ; gen_equals.py
-  equals ; gen_equals.py
-  equals ; gen_equals.py
-  equals ; gen_equals.py
-  equals ; gen_equals.py
-  equals ; gen_equals.py
-  equals ; gen_equals.py
-  equals ; gen_equals.py
 
+  rot ; gen_rot.py
+  rot ; gen_rot.py
+  rot ; gen_rot.py
+  rot ; gen_rot.py
   rot ; gen_rot.py
   rot ; gen_rot.py
   rot ; gen_rot.py
@@ -101,4 +97,7 @@
   random ; gen_random.py
   random ; gen_random.py
   random ; gen_random.py
-
+  random ; gen_random.py
+  random ; gen_random.py
+  random ; gen_random.py
+  random ; gen_random.py
