@@ -2,6 +2,7 @@
     "tasks": [
         "cubos",
         "formula1",
+        "bombas",
         "candado"
     ]
 }

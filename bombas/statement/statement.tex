@@ -1,0 +1,48 @@
+\documentclass{oci}
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+
+\title{Bombas}
+
+\begin{document}
+\begin{problemDescription}
+Hombre Hormiga está en medio de una operación secreta y necesita escapar de la guarida de Chaqueta Amarilla.
+Sin embargo su traje tiene una falla y por el momento no le será posible volver a su tamaño normal.
+El último obstáculo que debe superar antes de alcanzar su nave es una grilla abierta de dimensiones $M \times N$.
+Sin embargo, Chaqueta Amarilla lanzará bombas tóxicas que harán imposible el paso por una casilla.
+
+Hombre Hormiga parte en la posición $(1,1)$ y debe llegar a $(M,N)$, donde lo espera su nave.
+Los eventos ocurren por turnos.
+En cada turno, CA puede lanzar un número cualesquiera de bombas en casillas diferentes. Cada una de las bombas dejará esa casilla de la grilla impasable debido a los efectos letales de los gases que libera.
+Inmediatamente después de eso, HH puede moverse en una dirección cardinal (sur, este, norte, oeste).
+
+¿Existe una forma de que Hombre Hormiga escape, o morirá inevitablemente a manos de Chaqueta Amarilla?
+\end{problemDescription}
+
+\begin{inputDescription}
+La entrada consiste en varias líneas.
+La primera línea tiene dos enteros $M$ y $N$ ($2 \le M, N \le 1\,000$), correspondientes a las dimensiones de la grilla.
+La segunda línea contiene un solo entero $K$ ($0 \le K \le MN$), el número de bombas que caerán sobre el terreno.
+Las siguientes $K$ líneas describen la caída de las bombas.
+Cada una de ellas contiene tres enteros $t_k$ ($1 \le t_k < MN$), $i_k$ ($1 \le i_k \le M$) y $j_k$ ($1 \le j_k \le N$), indicando que una bomba caerá en el $t_k$-ésimo turno en las coordenadas $(i_k, j_k)$.
+\end{inputDescription}
+
+\begin{outputDescription}
+La salida consiste en una sola línea con un 1 si existe una forma de que Hombre Hormiga escape o 0 si no.
+\end{outputDescription}
+
+\begin{scoreDescription}
+  \subtask{20}  % Las bombas no caen al principio o bastaría ver que no haya bombas.
+  $M = 1$. No hay restricciones adicionales.
+  \subtask{30}  % DFS o BFS sirven aquí, el laberinto es estático y flood fill sirve.
+  Todas las bombas caen al comienzo, es decir $t_k = 1$ para todos los $k$.
+  \subtask{50}
+  No hay restricciones adicionales.
+\end{scoreDescription}
+
+\begin{sampleDescription}
+\sampleIO{sample-1}
+\sampleIO{sample-2}
+\end{sampleDescription}
+
+\end{document}

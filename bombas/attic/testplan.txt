@@ -1,0 +1,47 @@
+# This is a sample test plan.
+# Every line specifies a command to generate a test case.
+# The first column specifies a group name.
+# The second column specifies a command to generate the test case, it could be
+# either a `copy` command or a generator with its respective arguments.
+# A `copy` command expects a path to a file relatively to the task root.
+# A generator could be a source file in Java, C++ or Python, which is compiled
+# and executed with the specified arguments.
+# Additionally, an argument which is different for every test case, is passed
+# at the beginning. Arguments should be used to generate a uniquely random seed
+# inside the generator.
+# To generate test cases using test plan use `ocimatic gen-input`
+
+
+[Subtask 1]
+  # Use sample data as test
+  1 ; copy statement/sample-1.in
+
+  # Random tests
+  2 ; generator.py 1 200 5
+  2 ; generator.py 1 400 5
+  2 ; generator.py 1 600 5
+  2 ; generator.py 1 800 5
+  2 ; generator.py 1 1000 5
+
+  # Edge cases
+  3 ; generator.py 1 1000 1000 999 999
+  3 ; generator.py 1 1000 1000 1000 1000
+  3 ; generator.py 1 1000 1000 1001 1001
+
+
+[Subtask 2]
+  # Use sample data as test
+  1 ; copy statement/sample-2.in
+
+  # TODO (manual labyrinth requiring all 4 directions)
+
+  # TODO Random tests (input values are M, N, K, t0, tf - where K bombs are dropped uniformly in the time interval [t0, tf])
+  3 ; generator.py 2 10 5 1 1
+  3 ; generator.py 2 20 5 1 1
+
+
+[Subtask 3]
+  # TODO manual (labyrinth requiring all 4 directions)
+
+  # TODO Random tests (input values are M, N, K, t0, tf - where K bombs are dropped uniformly in the time interval [t0, tf])
+
