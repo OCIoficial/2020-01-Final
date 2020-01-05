@@ -64,14 +64,14 @@
 
 \getenv[\@codename]{OCIMATIC_CODENAME}
 % \def\@thecodename{\ifdefempty{\@codename}{<\hspace{4em}>}{\detokenize\expandafter{\@codename}}}
-\def\@thecodename{\ifdefempty{\@codename}{<\raisebox{0.15em}{\tiny filled by ocimatic}>}{\detokenize\expandafter{\@codename}}}
+\def\@thecodename{\ifdefempty{\@codename}{{\tt <\raisebox{0.15em}{\tiny filled by ocimatic}>}}{{\tt \detokenize\expandafter{\@codename}}}}
 
 
 \newcommand{\mymaketitle}{
     \begin{center}
       {\huge\bf \sf Problema \@theproblem}\\
     \LARGE{\sf \@title}\\[2mm]
-    \normalsize {\em nombre clave:} {\tt \@thecodename}
+    \normalsize {\em nombre clave:} \@thecodename
     \vspace{6pt}
     \end{center}
 }
