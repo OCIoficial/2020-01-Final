@@ -219,9 +219,13 @@ De esta forma no gastará tiempo innecesario armando cubos iguales.
 
 \begin{scoreDescription}
   Este problema no contiene subtareas.
-  Se evaluarán exactamente 200 casos de prueba y se otorgará puntaje de acuerdo a la cantidad de
-  casos correctos.
-  Si $C$ es la cantidad de casos correctos, el puntaje recibido será $\max(C-100,0)$. 
+  Se dará puntaje de acuerdo a la cantidad de casos correctos siendo 100 el máximo puntaje.
+  Para obtener puntaje mayor que cero hay que responder correctamente al menos un 50\%
+  de los casos de prueba.
+  Si la cantidad de casos correctos es menor al 50\% el puntaje en el problema será 0.
+  En caso contrario el puntaje será otorgado de acuerdo a la siguiente fórmula:
+  $$\frac{(C - 0.5\times T)}{(T - 0.5\times T)}\times 100$$
+  Donde $T$ es la cantidad total de casos de prueba y $C$ es la cantidad de casos correctos.
 \end{scoreDescription}
 
 \begin{sampleDescription}

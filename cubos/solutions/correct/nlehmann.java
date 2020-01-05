@@ -1,8 +1,6 @@
 // Adapted from vardieri.cpp
-
 import java.io.*;
 import java.util.*;
-
 
 class cubos {
     static public void main(String args[]) throws Exception {
@@ -52,7 +50,6 @@ class Cube {
         return new Cube(arr);
     }
 
-
     public boolean equalsUpToRotation(Cube rhs) {
         for (int i = 0; i < 5; ++i) {
             if (equalsUpToHorizontalRotation(rhs))
@@ -84,5 +81,4 @@ class Cube {
         }
         return true;
     }
-
 }
