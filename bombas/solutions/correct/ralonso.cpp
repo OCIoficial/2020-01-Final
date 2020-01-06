@@ -45,10 +45,10 @@ int main(int argc, char *argv[]) {
   while (!bfs.empty()) {
     tup = bfs.front();
     bfs.pop();
-    cerr << "Entering position " << get<1>(tup) << "," << get<2>(tup) << " at interval " << get<0>(tup) << endl;
+//     cerr << "Entering position " << get<1>(tup) << "," << get<2>(tup) << " at interval " << get<0>(tup) << endl;
 
     if (grid[get<1>(tup)][get<2>(tup)] <= get<0>(tup)) {  // Bombed space
-      cerr << "Position was bombed at time " << grid[get<1>(tup)][get<2>(tup)] << endl;
+//       cerr << "Position was bombed at time " << grid[get<1>(tup)][get<2>(tup)] << endl;
       continue;
     }
 
