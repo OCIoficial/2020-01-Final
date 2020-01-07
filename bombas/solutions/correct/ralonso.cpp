@@ -45,15 +45,13 @@ int main(int argc, char *argv[]) {
   while (!bfs.empty()) {
     tup = bfs.front();
     bfs.pop();
-//     cerr << "Entering position " << get<1>(tup) << "," << get<2>(tup) << " at interval " << get<0>(tup) << endl;
 
-    if (grid[get<1>(tup)][get<2>(tup)] <= get<0>(tup)) {  // Bombed space
-//       cerr << "Position was bombed at time " << grid[get<1>(tup)][get<2>(tup)] << endl;
-      continue;
+    if (get<1>(tup) == m && get<2>(tup) == n) {  // Reached the exit; result depends on bomb
+      return grid[get<1>(tup)][get<2>(tup)] >= get<0>(tup) ? possible() : impossible();
     }
 
-    if (get<1>(tup) == m && get<2>(tup) == n) {  // Reached the exit
-      return possible();
+    if (grid[get<1>(tup)][get<2>(tup)] <= get<0>(tup)) {  // Bombed space
+      continue;
     }
 
     grid[get<1>(tup)][get<2>(tup)] = get<0>(tup);   // Store the turn
