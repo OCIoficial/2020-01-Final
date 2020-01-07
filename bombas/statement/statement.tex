@@ -1,49 +1,72 @@
 \documentclass{oci}
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
+\usepackage{tikz}
+\usetikzlibrary{arrows, decorations.markings}
 
 \title{Bombas}
 
 \begin{document}
 \begin{problemDescription}
-Hombre Hormiga está en medio de una operación secreta y necesita escapar de la guarida de Chaqueta Amarilla.
-Sin embargo su traje tiene una falla y por el momento no le será posible volver a su tamaño normal.
-El último obstáculo que debe superar antes de alcanzar su nave es una grilla abierta de dimensiones $M \times N$.
-Sin embargo, Chaqueta Amarilla lanzará bombas tóxicas que harán imposible el paso por una casilla.
+  Luego de años de búsqueda, el profesor Jones ha logrado finalmente encontrar el cáliz de la vida
+  eterna dentro del templo de las mil almas perdidas.
+  Pero este no es aún el fin de su aventura.
+  Tal como lo presagiaban los escritos, al levantar el cáliz de su pedestal, las mil almas que lo
+  resguardaban despertaron de su sueño.
+  El templo completo se cae a pedazos y el profesor debe escapar rápidamente con el cáliz o quedará
+  atrapado por la eternidad.
 
-Hombre Hormiga parte en la posición $(1,1)$ y debe llegar a $(M,N)$, donde lo espera su nave.
-Los eventos ocurren por turnos.
-En cada turno, CA puede lanzar un número cualesquiera de bombas en casillas diferentes. Cada una de las bombas dejará esa casilla de la grilla impasable debido a los efectos letales de los gases que libera.
-Inmediatamente después de eso, HH puede moverse en una dirección cardinal (sur, este, norte, oeste).
+  El piso del templo es una grilla de $M\times N$.
+  Las casillas están numeradas de norte a sur entre 1 y $M$, y de oeste a este entre 1 y $N$.
+  El profesor comienza en la casilla (1, 1) y para escapar debe llegar a la casilla $(M, N)$.
+  En condiciones normales se podría caminar libremente sobre la grilla.
+  Sin embargo, como todo se cae a pedazos, en cualquier momento puede caer una roca sobre alguna de
+  las casillas.
 
-¿Existe una forma de que Hombre Hormiga escape, o morirá inevitablemente a manos de Chaqueta Amarilla?
+  Los eventos ocurren por turnos, habiendo dos fases en cada uno.
+  En la primera fase, un número arbitrario de rocas podrá caer sobre las distintas casillas.
+  Si el profesor se encuentra en una de las casillas donde cae una roca, será aplastado por esta y
+  lamentablemente no podrá escapar del templo.
+  Una vez que una roca cae sobre una casilla, esta quedará bloqueada y el profesor no podrá moverse
+  a ella.
+  En la segunda fase, el profesor puede moverse desde la casilla actual a una de las cuatro casillas
+  adyacentes en dirección norte, sur, este u oeste (siempre y cuando no haya una roca sobre esta).
+
+  En la desesperación, el profesor duda incluso que esta vez le sea posible escapar.
+  ?`Puedes ayudar al profesor a saber si podrá escapar o si quedará atrapado para siempre dentro del
+  templo?
 \end{problemDescription}
 
 \begin{inputDescription}
-La entrada consiste en varias líneas.
-La primera línea tiene dos enteros $M$ y $N$ ($2 \le M, N \le 1\,000$), correspondientes a las dimensiones de la grilla.
-La segunda línea contiene un solo entero $K$ ($0 \le K \le MN$), el número de bombas que caerán sobre el terreno.
-Las siguientes $K$ líneas describen la caída de las bombas.
-Cada una de ellas contiene tres enteros $t_k$ ($1 \le t_k < MN$), $i_k$ ($1 \le i_k \le M$) y $j_k$ ($1 \le j_k \le N$), indicando que una bomba caerá en el $t_k$-ésimo turno en las coordenadas $(i_k, j_k)$.
+  La entrada consiste en varias líneas.
+  La primera línea contiene dos enteros $M$ y $N$ ($2 \le M, N \le 1\,000$), correspondientes a las
+  dimensiones de la grilla.
+  La segunda línea contiene un solo entero $K$ ($0 \le K \le M\times N$), correspondiente al número de
+  rocas que caerán sobre la grilla.
+  Las siguientes $K$ líneas describen la caída de las rocas.
+  Cada una contiene tres enteros $t$ ($1 \le t < M\times N$), $i$ ($1 \le i \le M$) y $j$ ($1 \le
+  j \le N$), indicando que en la primera fase del $t$-ésimo turno caerá una roca en las coordenadas $(i,
+  j)$.
+  Se garantiza que nunca caerán rocas sobre las casillas (1, 1) y $(M, N)$.
 \end{inputDescription}
 
 \begin{outputDescription}
-La salida consiste en una sola línea con un 1 si existe una forma de que Hombre Hormiga escape o 0 si no.
+  La salida de contener una sola línea con un 1 si existe una forma de que el profesor escape o un 0
+  si no.
 \end{outputDescription}
 
 \begin{scoreDescription}
   \subtask{20}  % Las bombas no caen al principio o bastaría ver que no haya bombas.
-  $M = 1$. No hay restricciones adicionales.
+  Se probarán varios casos donde $M = 1$ y sin restricciones adicionales.
   \subtask{30}  % DFS o BFS sirven aquí, el laberinto es estático y flood fill sirve.
-  Todas las bombas caen al comienzo, es decir $t_k = 1$ para todos los $k$.
+  Se probarán varios casos donde todas las bombas caen al comienzo, es decir $t = 1$ para todas las rocas.
   \subtask{50}
-  No hay restricciones adicionales.
+  Se probarán varios casos sin restricciones adicionales.
 \end{scoreDescription}
 
 \begin{sampleDescription}
-\sampleIO{sample-1}
-\sampleIO{sample-2}
-\sampleIO{sample-3}
+  \sampleIO{sample-1}
+  \sampleIO{sample-2}
+  \sampleIO{sample-3}
 \end{sampleDescription}
-
 \end{document}
