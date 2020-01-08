@@ -4,10 +4,11 @@ import sys
 
 
 def generate_sorted_array(N, maxi):
-    """Generates a sorted array of size `N` where the first element is 0 and the last element is `maxi`."""
+    """Generates a sorted array of size `N` where the first element is 0, the last element is `maxi` and
+    all elements are distinct."""
     arr = [0]
-    for _ in range(N - 1):
-        arr.append(random.randint(0, maxi))
+    arr.extend(random.sample(range(1, maxi), N - 2))
+    arr.append(maxi)
     return sorted(arr)
 
 
@@ -36,6 +37,7 @@ def main():
     MAXQ = (N * (N - 1)) // 2
 
     assert N >= 2
+    assert maxi >= N
     assert 0 < Q <= MAXQ
 
     print(N, Q)

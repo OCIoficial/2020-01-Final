@@ -1,10 +1,8 @@
 [Subtask 1]
-  # The array of differences has only 0s, thus, the answer is 0 for all queries.
-  all_zeros ; gen_random.py 1000 1000 0
-
-  # The sorted array has many repeated elements, thus, the differences are small
-  dense ; gen_random.py 1000 1000 100
-  dense ; gen_random.py 1000 1000 500
+  # Differences are small
+  dense ; gen_random.py 1000 1000 1000
+  dense ; gen_random.py 1000 1000 2000
+  dense ; gen_random.py 1000 1000 2000
 
   # The sorted array is sparse, thus, the array of differences has large values.
   sparse ; gen_random.py 1000 1000 1000000000
@@ -13,6 +11,7 @@
   # Biggest input where all possible pairs are present in the queries
   all_pairs ; gen_random.py 45 990 1000000000
   all_pairs ; gen_random.py 45 990 1000000000
+  all_pairs ; gen_random.py 45 990 50
 
   # Some random cases
   random ; gen_random.py 10 10 100
@@ -28,12 +27,10 @@
   random ; gen_random.py 1000 1000 10000
 
 [Subtask 2]
-  # The array of differences has only 0s, thus, the answer is 0 for all queries.
-  all_zeros ; gen_random.py 1000000 100000 0
-
-  # The sorted array has many repeated elements, thus, the differences are small
-  dense ; gen_random.py 1000000 100000 100
-  dense ; gen_random.py 1000000 100000 500
+  # Differences are small
+  dense ; gen_random.py 1000000 100000 1000000
+  dense ; gen_random.py 1000000 100000 2000000
+  dense ; gen_random.py 1000000 100000 2000000
 
   # The sorted array is sparse, thus, the array of differences has large values.
   sparse ; gen_random.py 1000000 100000 1000000000
@@ -42,6 +39,7 @@
   # Biggest input where all possible pairs are present in the queries
   all_pairs ; gen_random.py 447 99681 1000000000
   all_pairs ; gen_random.py 447 99681 1000000000
+  all_pairs ; gen_random.py 447 99681 500
 
   # Some random cases
   random ; gen_random.py 2000 2000 10000

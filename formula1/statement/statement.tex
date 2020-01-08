@@ -13,27 +13,23 @@
   A estas velocidades es difícil para los espectadores percibir todos los detalles.
   Afortunadamente, una pantalla muestra en cada momento las estadísticas de la carrera.
 
-  Entre los datos mostrados en la pantalla uno es la diferencia de tiempo entre un corredor y el
-  corredor inmediatamente antes que él.
-  Este dato es muy útil pues ilustra qué tan alejado está un competidor del siguiente.
-  Lamentablemente, este dato solo sirve para comparar corredores en posiciones contiguas y durante
-  la carrera a muchos analistas les gustaría poder comparar cualquier par de competidores.
+  Entre los datos mostrados en la pantalla, uno es de particular importancia terminada la carrera.
+  Este dato indica la diferencia de tiempo entre un corredor y el
+  corredor que terminó la carrera inmediatamente antes que él.
+  Este dato es muy útil pues ilustra qué tan alejado terminó un competidor del siguiente.
+  Lamentablemente, este dato solo sirve para comparar corredores en posiciones contiguas y al final
+  de la carrera a muchos analistas les gustaría poder comparar cualquier par de competidores.
 
   De forma específica, la pantalla muestra la diferencia en tiempo en la que dos competidores
-  terminaron la vuelta anterior.
-  Es decir, si al terminar la vuelta anterior, el corredor en la posición $(i-1)$-ésima cruzó la
+  cruzaron la meta.
+  Es decir, si al terminar la carrera, el corredor que terminó en la posición $(i-1)$-ésima cruzó la
   meta en el tiempo $t_{i-1}$ y el corredor en la posición $i$-ésima lo hizo en el tiempo $t_{i}$,
   la pantalla mostrará junto al corredor en la posición $i$-ésima el valor $t_{i} - t_{i-1}$.
-  Por ejemplo, si el corredor que va tercero cruzó la meta luego de 300 segundos
-  comenzada la carrera y el corredor que va cuarto la cruzó 305 segundos después de comenzada la
-  carrera, la pantalla mostrará un valor igual a $305-300=5$ para el corredor en la cuarta posición.
-  Dado que el corredor en la primera posición no tiene nadie antes que él, la pantalla siempre mostrará
-  el valor 0 para este corredor.
-
-  Notar que las posiciones de los competidores pueden variar constantemente y los valores en la
-  pantalla solo consideran las posiciones en que los competidores terminaron la última vuelta.
-  Notar además que los valores solo tienen sentido una vez que todos los competidores han completado
-  la vuelta anterior.
+  Por ejemplo, si el corredor que terminó tercero cruzó la meta luego de 300 segundos
+  comenzada la carrera y el corredor que terminó cuarto la cruzó 305 segundos después de comenzada la
+  carrera, la pantalla mostrará un valor igual a $305-300=5$ para el corredor en cuarta posición.
+  Dado que el corredor en la primera posición no tiene nadie antes que él, la pantalla mostrará
+  el valor 0 para este.
 
   Dadas las diferencias en tiempo entre los competidores en posiciones contiguas, tu tarea es
   responder diferentes consultas indicando la diferencia en tiempo entre dos competidores en
@@ -44,10 +40,10 @@
   La entrada comienza con dos enteros $N$ y $Q$ indicando respectivamente la cantidad de
   competidores en la carrera y la cantidad de consultas que debes responder.
 
-  La siguiente línea contiene $N$ enteros \textbf{mayores o iguales que cero}.
+  La siguiente línea contiene $N$ enteros mayores que cero.
   El $i$-ésimo entero corresponde a la diferencia en tiempo entre el corredor en la posición
   $i$-ésima y el corredor en la posición $(i-1)$-ésima, tal como se describe en el enunciado.
-  El primer entero, por corresponder al corredor que va primero en la carrera, siempre será 0.
+  El primer entero, por corresponder al corredor que terminó primero, siempre será 0.
   
   Finalmente, siguen $Q$ líneas cada una describiendo una consulta.
   Cada una de estas líneas contiene dos enteros $a$ y $b$ indicando que debes
@@ -62,9 +58,9 @@
 \end{inputDescription}
 
 \begin{outputDescription}
-  La salida debe contener $Q$ líneas cada una conteniendo un entero \textbf{mayor o igual que cero}.
-  La $j$-ésima línea debe contener la respuesta a la pregunta $j$-ésima.
-  Se garantiza que la respuesta a las consultas siempre será menor que $10^9$.
+  La salida debe contener $Q$ líneas cada una conteniendo un entero.
+  La $j$-ésima línea debe contener la respuesta a la consulta $j$-ésima.
+  Se garantiza que las respuestas a las consultas siempre serán menor que $10^9$.
 \end{outputDescription}
 
 \begin{scoreDescription}
