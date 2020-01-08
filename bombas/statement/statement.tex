@@ -2,38 +2,124 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
 \usepackage{tikz}
-\usetikzlibrary{arrows, decorations.markings}
+\usetikzlibrary{calc}
+\usepackage{tabularx}
 
 \title{Bombas}
 
+\newcommand{\drawgrid}{%
+  \draw[step=1.0,gray,thin] (0,0) grid (3, 2);
+  \foreach \i in {1,...,3}{
+    \node at (\i-0.5, 2.2) {\scalebox{0.6}{$\i$}};
+  }
+  \foreach \j in {1,...,2}{
+    \node at (-0.2, 3 - \j-0.5) {\scalebox{0.6}{$\j$}};
+  }
+}
+\newcommand{\jones}[2]{%
+  \node[fill] (jones) at (#2 - 0.5, 2 - #1 + 0.5) {}
+}
+\newcommand{\boulder}[2]{%
+  \draw[rounded corners, thick, fill=gray] ($(#2 - 0.85, 2.15 - #1)$) rectangle +(.7, .7) {}
+}
+
+\newcommand{\arrowsouth}{%
+  \draw[->, very thick] ($(jones) + (0, -.25)$) to ($(jones) + (0, -0.8)$)
+}
+\newcommand{\arrownorth}{%
+  \draw[->, very thick] ($(jones) + (0, .25)$) to ($(jones) + (0, .8)$)
+}
+\newcommand{\arroweast}{%
+  \draw[->, very thick] ($(jones) + (.25, 0)$) to ($(jones) + (.8, 0)$)
+}
+\newcommand{\arrowwest}{%
+  \draw[->, very thick] ($(jones) + (-.25, 0)$) to ($(jones) + (-.8, 0)$)
+}
+\newcommand*{\tabbox}[2][t]{\vspace{-10pt}\parbox[#1][4.3\baselineskip]{20em}{\strut#2\strut}}
+\newcolumntype{A}{>{\footnotesize}m{.50\textwidth} }
+\newcolumntype{B}{>{\vspace{10pt}}m{.20\textwidth} }
+
+
 \begin{document}
 \begin{problemDescription}
-  Luego de años de búsqueda, el profesor Jones ha logrado finalmente encontrar el cáliz de la vida
+  Luego de años de búsqueda, la doctora Jones ha logrado finalmente encontrar el cáliz de la vida
   eterna dentro del templo de las mil almas perdidas.
   Pero este no es aún el fin de su aventura.
   Tal como lo presagiaban los escritos, al levantar el cáliz de su pedestal, las mil almas que lo
   resguardaban despertaron de su sueño.
-  El templo completo se cae a pedazos y el profesor debe escapar rápidamente con el cáliz o quedará
-  atrapado por la eternidad.
+  El templo completo se cae a pedazos y la doctora debe escapar rápidamente o quedará atrapada por
+  la eternidad.
 
   El piso del templo es una grilla de $M\times N$.
   Las casillas están numeradas de norte a sur entre 1 y $M$, y de oeste a este entre 1 y $N$.
-  El profesor comienza en la casilla (1, 1) y para escapar debe llegar a la casilla $(M, N)$.
-  En condiciones normales se podría caminar libremente sobre la grilla.
-  Sin embargo, como todo se cae a pedazos, en cualquier momento puede caer una roca sobre alguna de
-  las casillas.
+  La doctora comienza en la casilla (1, 1) y para escapar debe llegar a la casilla $(M, N)$.
+  En condiciones normales se podría caminar libremente sobre la grilla, sin embargo, como todo se
+  cae a pedazos, en cualquier momento puede caer una roca sobre alguna de las casillas.
 
   Los eventos ocurren por turnos, habiendo dos fases en cada uno.
-  En la primera fase, un número arbitrario de rocas podrá caer sobre las distintas casillas.
-  Si el profesor se encuentra en una de las casillas donde cae una roca, será aplastado por esta y
+  En la primera fase, un número arbitrario de rocas puede caer sobre las casillas.
+  Si la doctora se encuentra en una de las casillas donde cae una roca, será aplastada por esta y
   lamentablemente no podrá escapar del templo.
-  Una vez que una roca cae sobre una casilla, esta quedará bloqueada y el profesor no podrá moverse
+  Una vez que una roca cae sobre una casilla, esta quedará bloqueada y la doctora no podrá moverse
   a ella.
-  En la segunda fase, el profesor puede moverse desde la casilla actual a una de las cuatro casillas
+  En la segunda fase, la doctora debe moverse desde la casilla actual a una de las cuatro casillas
   adyacentes en dirección norte, sur, este u oeste (siempre y cuando no haya una roca sobre esta).
 
-  En la desesperación, el profesor duda incluso que esta vez le sea posible escapar.
-  ?`Puedes ayudar al profesor a saber si podrá escapar o si quedará atrapado para siempre dentro del
+  A continuación se muestra un ejemplo para una grilla de tamaño $2\times 3$:
+  \begin{center}
+  \begin{tabular}{|B|B|A|}
+    \hline
+      \begin{tikzpicture}
+        \drawgrid; \jones{1}{1};
+        \boulder{1}{2};
+      \end{tikzpicture}
+    &
+      \begin{tikzpicture}
+        \drawgrid; \jones{2}{1};
+        \draw[->, very thick, color=black!30] ($(jones) + (0, 0.9)$) to ($(jones) + (0, 0.2)$);
+        \boulder{1}{2};
+      \end{tikzpicture}
+    &
+    En la primera fase del primer turno una roca cae en la casilla (1, 2) dejándola bloqueada.
+    En la segunda fase la doctora se mueve en la única dirección posible quedando en la casilla (2, 1).
+    \\
+    \hline
+      \begin{tikzpicture}
+        \drawgrid; \jones{2}{1};
+        \boulder{1}{2};
+      \end{tikzpicture}
+    &
+      \begin{tikzpicture}
+        \drawgrid; \jones{2}{2};
+        \draw[->, very thick, color=black!30] ($(jones) + (-0.9, 0)$) to ($(jones) + (-0.2, 0)$);
+        \boulder{1}{2};
+      \end{tikzpicture}
+    &
+      En el segundo turno no cae ninguna roca y la doctora se mueve hacia el este quedando en la casilla
+      (2, 2).
+    \\
+    \hline
+      \begin{tikzpicture}
+        \drawgrid; \jones{2}{2};
+        \boulder{1}{2}; \boulder{2}{1}; \boulder{1}{3};
+      \end{tikzpicture}
+    &
+      \begin{tikzpicture}
+        \drawgrid; \jones{2}{3};
+        \draw[->, very thick, color=black!30] ($(jones) + (-0.9, 0)$) to ($(jones) + (-0.2, 0)$);
+        \boulder{1}{2}; \boulder{2}{1}; \boulder{1}{3};
+      \end{tikzpicture}
+    &
+      En el turno 3 primero caen dos rocas, una en la casilla (2, 1) y otra en la casilla (1, 3).
+      En la segunda fase la doctora se mueve nuevamente hacia el este alcanzando la casilla (2, 3) y
+      logrando escapar.
+    \\
+    \hline
+  \end{tabular}
+\end{center} 
+
+  En la desesperación, la doctora duda incluso que esta vez le sea posible escapar.
+  ?`Puedes ayudarla a saber si podrá escapar o si quedará atrapada para siempre dentro del
   templo?
 \end{problemDescription}
 
@@ -51,7 +137,7 @@
 \end{inputDescription}
 
 \begin{outputDescription}
-  La salida debe contener una sola línea con un 1 si existe una forma de que el profesor escape o un 0
+  La salida debe contener una sola línea con un 1 si existe una forma de que el doctora escape o un 0
   si no.
 \end{outputDescription}
 
