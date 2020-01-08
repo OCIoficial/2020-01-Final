@@ -7,7 +7,7 @@ class cubos {
         Scanner in = new Scanner(System.in);
 
         Cube cube1 = new Cube(in);
-        Cube cube2 = new Cube (in);
+        Cube cube2 = new Cube(in);
 
         System.out.println(cube1.equalsUpToRotation(cube2) ? "1" : "0");
     }
