@@ -27,7 +27,7 @@ def rotv(cube):
 def main():
     random.seed(sys.argv[1])
 
-    cube1 = [random.randint(0, 6) for _ in range(6)]
+    cube1 = [random.randint(0, 5) for _ in range(6)]
 
     # Copy and rotate randomly 100 times
     cube2 = cube1.copy()

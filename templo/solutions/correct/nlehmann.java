@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 
-class bombas {
+class templo {
     static int grid[][];
     static int M, N;
     static public void main(String args[]) throws Exception {

@@ -1,18 +1,4 @@
-# This is a sample test plan.
-# Every line specifies a command to generate a test case.
-# The first column specifies a group name.
-# The second column specifies a command to generate the test case, it could be
-# either a `copy` command or a generator with its respective arguments.
-# A `copy` command expects a path to a file relatively to the task root.
-# A generator could be a source file in Java, C++ or Python, which is compiled
-# and executed with the specified arguments.
-# Additionally, an argument which is different for every test case, is passed
-# at the beginning. Arguments should be used to generate a uniquely random seed
-# inside the generator.
-# To generate test cases using test plan use `ocimatic gen-input`
-
-
-[Subtask 1]
+[Subtask 1 - validators/st1.cpp]
   # Use sample data as test
   1 ; copy statement/sample-1.in
   1 ; copy statement/sample-2.in
@@ -32,13 +18,10 @@
   # Edge cases
   3 ; generator.py 1 1000 1000 999 999
   3 ; generator.py 1 1000 1000 1000 1000
-  3 ; generator.py 1 1000 1000 1001 1001
+  3 ; generator.py 1 1000 1000 999 1000
 
 
-[Subtask 2]
-  # Use sample data as test
-  1 ; copy statement/sample-3.in
-
+[Subtask 2 - validators/st2.cpp]
   # Spirals
   2 ; spiral.py 5 15 none
   2 ; spiral.py 15 5 block-center
@@ -63,7 +46,7 @@
   3 ; generator.py 1000 1000 477850 1 1
 
 
-[Subtask 3]
+[Subtask 3 - validators/st3.cpp]
   # Spirals
   1 ; spiral.py 15 5 block-over
   1 ; spiral.py 5 15 block-past

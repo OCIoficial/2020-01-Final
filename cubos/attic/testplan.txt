@@ -1,4 +1,4 @@
-[Subtask 1]
+[Subtask 1 - validators/st.cpp]
   equals ; gen_equals.py
   equals ; gen_equals.py
 

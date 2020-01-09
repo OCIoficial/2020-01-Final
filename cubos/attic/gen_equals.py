@@ -5,6 +5,6 @@ import sys
 
 random.seed(sys.argv[1])
 
-cube = [random.randint(0, 6) for _ in range(6)]
+cube = [random.randint(0, 5) for _ in range(6)]
 print(*cube)
 print(*cube)

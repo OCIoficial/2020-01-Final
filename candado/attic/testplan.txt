@@ -1,4 +1,4 @@
-[Subtask 1]
+[Subtask 1 - validators/st.cpp]
   random ; gen_random.py
   random ; gen_random.py
   random ; gen_random.py

@@ -87,7 +87,7 @@ int main() {
 				rotarh(b);
 				}
 				else{rotarv(b);}
-			}			
+			}
 		}
 		if(c[i]==1){//generar el otro cubo aleatoriamente, MUY baja chance de que sean iguales.
 			for(int j =0; j<6; j++){
@@ -97,6 +97,6 @@ int main() {
 		mostrar(a);
 		cout << '\n';
 		mostrar(b);
-		cout << '\n';		
+		cout << '\n';
 	}
 }
