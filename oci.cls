@@ -50,8 +50,8 @@
 
 \setlength\headheight{54.3pt} 
 \pagestyle{fancy}
-\lhead{\includegraphics[height=37.5pt]{logo.eps}}
-\rhead{\phase\ \the\year}
+\lhead{\includegraphics[height=34pt]{logo.eps}}
+\rhead{\phase\ 2019}
 \renewcommand{\headrulewidth}{0.2pt}
 
 %% FOOTER
