@@ -14,7 +14,11 @@ int main() {
     if (i > 0) {
       inf.readSpace();
     }
-    s += inf.readInt(0, 1000000000);
+    int a = inf.readInt(0, 1000000000);
+    if (i == 0) {
+      ensuref(a == 0, "The first number must be zero.");
+    }
+    s += a;
     ensuref(s <= 1000000000, "Result must be less than 10^9");
   }
   inf.readEoln();
