@@ -40,16 +40,18 @@
   1 ; copy statement/sample-3.in
 
   # Spirals
-  2 ; spiral.py 5 5 0
-  2 ; spiral.py 5 5 1
-  2 ; spiral.py 25 25 0
-  2 ; spiral.py 25 25 1
-  2 ; spiral.py 125 125 1
-  2 ; spiral.py 125 125 0
-  2 ; spiral.py 625 625 1
-  2 ; spiral.py 625 625 0
-  2 ; spiral.py 1000 1000 0
-  2 ; spiral.py 1000 1000 1
+  2 ; spiral.py 5 15 none
+  2 ; spiral.py 15 5 block-center
+  2 ; spiral.py 35 25 none
+  2 ; spiral.py 25 35 block-center
+  2 ; spiral.py 125 135 block-center
+  2 ; spiral.py 135 125 none
+  2 ; spiral.py 635 625 block-center
+  2 ; spiral.py 625 635 none
+  2 ; spiral.py 500 500 block-center
+  2 ; spiral.py 500 500 none
+  2 ; spiral.py 1000 1000 none
+  2 ; spiral.py 1000 1000 block-center
 
   # Random tests (input values are M, N, K, t0, tf - where K bombs are dropped uniformly in the time interval [t0, tf])
   3 ; generator.py 20 20 100 1 1
@@ -62,7 +64,26 @@
 
 
 [Subtask 3]
-  # TODO manual (labyrinth requiring all 4 directions)
+  # Spirals
+  1 ; spiral.py 15 5 block-over
+  1 ; spiral.py 5 15 block-past
+  1 ; spiral.py 25 35 block-over
+  1 ; spiral.py 35 25 block-past
+  1 ; spiral.py 125 135 block-past
+  1 ; spiral.py 135 125 block-over
+  1 ; spiral.py 625 635 block-over
+  1 ; spiral.py 635 625 block-past
+  1 ; spiral.py 500 500 block-past
+  1 ; spiral.py 500 500 block-over
+  1 ; spiral.py 1000 1000 block-past
+  1 ; spiral.py 1000 1000 block-over
 
-  # TODO Random tests (input values are M, N, K, t0, tf - where K bombs are dropped uniformly in the time interval [t0, tf])
+  # Random tests (input values are M, N, K, t0, tf - where K bombs are dropped uniformly in the time interval [t0, tf])
+  2 ; generator.py 20 20 150 1 38
+  2 ; generator.py 40 40 575 1 78
+  2 ; generator.py 80 80 2275 1 158
+  2 ; generator.py 160 160 11175 1 318
+  2 ; generator.py 320 320 44775 1 638
+  2 ; generator.py 640 640 179175 1 1278
+  2 ; generator.py 1000 1000 716775 1 1998
 
