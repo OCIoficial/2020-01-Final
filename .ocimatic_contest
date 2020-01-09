@@ -1,9 +1,9 @@
 {
     "phase": "Final Nacional",
     "tasks": [
-        "cubos",
         "formula1",
-        "templo",
-        "candado"
+        "cubos",
+        "candado",
+        "templo"
     ]
 }
