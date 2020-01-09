@@ -14,8 +14,10 @@ print(m, n)
 print(k)
 
 for i in range(k):
-  print(
-    random.randint(t0, tf),
-    random.randint(1, m),
-    random.randint(1, n)
-  )
+  turn = random.randint(t0, tf)
+  while True:
+    row, col = random.randint(1, m), random.randint(1, n)
+    if (row, col) != (1, 1) and (row, col) != (m, n):
+      break
+
+  print(turn, row, col)
